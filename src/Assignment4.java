@@ -29,9 +29,10 @@ public class Assignment4 {
 
         for(int input : inputs) {
             t.insert(input);
+            t.print();
         }
 
-        t.print();
+
 
         return t;
 
@@ -39,13 +40,13 @@ public class Assignment4 {
 
 
     public static void main(String[] args) {
-        int[] arr = {3, 6, 1, 7, 5, 2, 4, 0, 8, 9};
+        int[] arr = {40, 20, 10, 25, 30, 22, 50};
 
-        TreeNode n = offlineBinarySearchTree(arr);
-        n.print("");
+//        TreeNode n = offlineBinarySearchTree(arr);
+//        n.print("");
 
         AVLTree t = onlineBinarySearchTree(arr);
-        t.print();
+//        t.print();
 
 
     }

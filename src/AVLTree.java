@@ -8,15 +8,6 @@ class AVLTree {
         this.root = r;
     }
 
-    public int calculateHeight() {
-        return calculateHeight(this.root);
-    }
-
-    private int calculateHeight(TreeNode root) {
-        //TODO
-        return -1;
-    }
-
     // O(1) updateHeight function used to update only after rotations
     public void updateHeight(TreeNode root) {
         if(root == null) {
@@ -40,14 +31,6 @@ class AVLTree {
         return root.height;
     }
 
-    public boolean isBalanced() {
-        return isBalanced(this.root);
-    }
-
-    private boolean isBalanced(TreeNode root) {
-        return (Math.abs(balanceFactor(root)) <= 1);
-    }
-
     private int balanceFactor(TreeNode root) {
         return (getHeight(root.left) - getHeight(root.right));
     }
@@ -67,14 +50,11 @@ class AVLTree {
         return false;
     }
 
-    public boolean insert(int val) {
+    public void insert(int val) {
 
         if(!containsValue(this.root, val)) {
             this.root = insert(this.root, val);
-            return true;
         }
-
-        return false;
     }
 
     private TreeNode insert(TreeNode n, int val) {
@@ -93,7 +73,7 @@ class AVLTree {
 
     private TreeNode balance(TreeNode n) {
         if(balanceFactor(n) < -1) {
-            if(balanceFactor(n.right) < -1) {
+            if(balanceFactor(n.right) == -1) {
                 //LL
                 return rotateLeft(n);
             } else {
@@ -102,7 +82,7 @@ class AVLTree {
                 return rotateLeft(n);
             }
         } else if(balanceFactor(n) > 1) {
-            if(balanceFactor(n.left) > 1) {
+            if(balanceFactor(n.left) == 1) {
                 //RR
                 return rotateRight(n);
             } else {
