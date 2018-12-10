@@ -1,3 +1,5 @@
+import com.sun.source.tree.Tree;
+
 class AVLTree {
 
     TreeNode root;
@@ -6,15 +8,15 @@ class AVLTree {
         this.root = r;
     }
 
-    private int calculateHeight(TreeNode root) {
-        //TODO
-        return -1;
-    }
-
     // This function simply is a 'pass through' function that passes our root to the
     // function that actually does the work
     public int calculateHeight() {
         return calculateHeight(this.root);
+    }
+
+    private int calculateHeight(TreeNode root) {
+        //TODO
+        return -1;
     }
 
     // O(1) updateHeight function used to update only after rotations
@@ -40,16 +42,32 @@ class AVLTree {
         return root.height;
     }
 
-    private boolean isBalanced(TreeNode root) {
-        return (Math.abs(balaceFactor(root)) <= 1);
-    }
-
     public boolean isBalanced() {
         return isBalanced(this.root);
     }
 
-    private int balaceFactor(TreeNode root) {
+    private boolean isBalanced(TreeNode root) {
+        return (Math.abs(balanceFactor(root)) <= 1);
+    }
+
+    private int balanceFactor(TreeNode root) {
         return (getHeight(root.left) - getHeight(root.right));
+    }
+
+    public boolean containsValue(int val) {
+        TreeNode n = this.root;
+
+        while(n != null) {
+            if(n.value > val) {
+                n = n.left;
+            } else if(n.value < val) {
+                n = n.right;
+            } else{
+                return true;
+            }
+        }
+
+        return false;
     }
 
     // takes in a root, rotates the subtree, and returns a new root
