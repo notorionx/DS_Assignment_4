@@ -23,23 +23,30 @@ public class Assignment4 {
         return root;
     }
 
-//    public AVLTree onlineBinarySearchTree(int[] inputs) {
-//
-//        // Problem 3
-//        // The output should be an AVL-Tree
-//        return null;
-//
-//    }
+    public static AVLTree onlineBinarySearchTree(int[] inputs) {
+
+        AVLTree t = new AVLTree();
+
+        for(int input : inputs) {
+            t.insert(input);
+        }
+
+        t.print();
+
+        return t;
+
+    }
 
 
     public static void main(String[] args) {
         int[] arr = {3, 6, 1, 7, 5, 2, 4, 0, 8, 9};
-        TreeNode root = offlineBinarySearchTree(arr);
 
-        root.print("");
+        TreeNode n = offlineBinarySearchTree(arr);
+        n.print("");
 
-        AVLTree a = new AVLTree(root);
-        System.out.println(a.isBalanced());
-        a.print();
+        AVLTree t = onlineBinarySearchTree(arr);
+        t.print();
+
+
     }
 }
