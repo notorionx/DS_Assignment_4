@@ -1,5 +1,10 @@
+/**
+ * AVL Tree, a binary search tree which balances itself after the insertion of an element
+ * in order to maintain a height of roughly log n, where n is the total number of nodes
+ * in the tree
+ */
 class AVLTree {
-
+    //Root node of the entire tree
     TreeNode root;
 
     public AVLTree() {}
@@ -24,6 +29,7 @@ class AVLTree {
         root.height = Math.max(leftHeight, rightHeight) + 1;
     }
 
+    
     public int getHeight(TreeNode root) {
         if(root == null) {
             return -1;

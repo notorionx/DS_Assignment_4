@@ -28,6 +28,12 @@ public class Assignment4 {
         AVLTree t = new AVLTree();
 
         for(int input : inputs) {
+            /**
+             * Inserting new elements is O(log n) where n is the number of nodes in the tree.
+             * This is because an AVL Tree balances itself after each insertion to maintain
+             * a height of roughly log n, and we are always going to be inserting new elements
+             * at leaf nodes, so we need to make log n comparisons to find where to insert.
+             */
             t.insert(input);
             t.print();
         }
@@ -40,7 +46,7 @@ public class Assignment4 {
 
 
     public static void main(String[] args) {
-        int[] arr = {40, 20, 10, 25, 30, 22, 50};
+        int[] arr = {40, 20, 10, 25, 30, 22, 50, 2, 6, 13, 5, 99, 75};
 
 //        TreeNode n = offlineBinarySearchTree(arr);
 //        n.print("");
