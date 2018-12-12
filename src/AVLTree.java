@@ -66,42 +66,14 @@ class AVLTree {
         return (getHeight(root.left) - getHeight(root.right));
     }
 
-//    /**
-//     * Checks to see if the user is trying to input a value that already exists in the tree.
-//     * First check at root node, then make recursive calls to left and right children until
-//     * the value is either found, or we reach the bottom of the tree.
-//     * @param root the root node of the subtree we are checking in
-//     * @param val the value that we are checking
-//     * @return true or false
-//     */
-//    public boolean containsValue(TreeNode root, int val) {
-//
-//        while(root != null) {
-//            if(root.value > val) {
-//                root = root.left;
-//            } else if(root.value < val) {
-//                root = root.right;
-//            } else{
-//                return true;
-//            }
-//        }
-//
-//        return false;
-//    }
-
     /**
-     * Wrapper method to insert a value into the tree. First check if
-     * the value is already in the tree, in which case we do not need to
-     * insert it. Then, we automatically pass this.root as the argument
-     * to the private insert method which does the actual work of inserting
-     * the value starting from the root node.
+     * Wrapper method to insert a value into the tree. We automatically
+     * pass this.root as the argument to the private insert method
+     * which does the actual work of inserting the value starting from the root node.
      * @param val the value to be inserted
      */
     public void insert(int val) {
-
-//        if(!containsValue(this.root, val)) {
-            this.root = insert(this.root, val);
-//        }
+        this.root = insert(this.root, val);
     }
 
     /**

@@ -90,8 +90,18 @@ public class Assignment4 {
          * When we consider the time it takes to insert the whole array of n elements
          * into the tree, we need to note that the size of the tree changes with each
          * insertion we make. Therefore, the total time it takes is going to be
-         * O(log 1 + log 2 + ... + log n), which is equivalent to O(log(n!)), and
-         * O(log(n!)) is equivalent to O(n log n), which is our answer.
+         *
+         * O(log 1 + log 2 + ... + log n)
+         *
+         * which is equivalent to
+         *
+         * O(log(n!))
+         *
+         * which is equivalent to
+         *
+         * O(n log n)
+         *
+         * which is our answer.
          */
 
 
@@ -101,6 +111,8 @@ public class Assignment4 {
         for(int input : inputs) {
             //Input values one at a time
             t.insert(input);
+            //For debugging
+//            t.print();
         }
 
 
@@ -110,16 +122,19 @@ public class Assignment4 {
     }
 
     /**
-     * For testing
+     * For testing. Note that the outputs are different but they are both
+     * binary search trees.
      * @param args
      */
     public static void main(String[] args) {
-        int[] arr = {40, 20, 10, 25, 30, 40, 22, 50, 2, 2, 6, 13, 5, 99, 75};
+        int[] arr1 = {40, 20, 10, 25, 30, 40, 22, 50, 2, 2, 6, 13, 5, 99, 75};
 
-        TreeNode n = offlineBinarySearchTree(arr);
+        TreeNode n = offlineBinarySearchTree(arr1);
         n.print("");
 
-        AVLTree t = onlineBinarySearchTree(arr);
+        int[] arr2 = {40, 20, 10, 25, 30, 40, 22, 50, 2, 2, 6, 13, 5, 99, 75};
+
+        AVLTree t = onlineBinarySearchTree(arr2);
         t.print();
 
 
